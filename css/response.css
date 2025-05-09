@@ -1,0 +1,16 @@
+@media screen and (max-width: 1200px) {
+    .main-screen-img-1{
+        left: 10px;
+    }
+    .main-screen-img-2{
+        right: 45px;
+    }
+}
+@media screen and (max-width: 1023px) {
+    .main-screen-img-1{
+        left: 10px;
+    }
+    .main-screen-img-2{
+        right: 45px;
+    }
+}
