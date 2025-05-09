@@ -1,5 +1,8 @@
 'use strict';
 $(function() {
+    // // input masks
+    // $("#tel").mask("+7 (999) 999-99-99");
+
     // play buttons init
     initVideos(".about-video",".about-video-play");
     function initVideos(videoClass, playButtonClass) {
@@ -37,19 +40,44 @@ $(function() {
         });
     }
 
+    // scroll
+    $(".menu-item-link").on("click", function() {
+        let get_id = $(this).attr("data-item");
+        let target = $("#"+get_id).offset().top;
+        $(" html, body").animate({scrollTop: target}, 800);
+    });
+
+    // carousels init
+    let worksCarousel = $('.owl-carousel.works-carousel');
+    worksCarousel.owlCarousel({
+        loop:true,
+        margin: 24,
+        nav:false,
+        dots: false,
+        responsive : {
+            0: {
+                items:1.2,
+                margin: 10,
+                center: true,
+            },
+            480: {
+                items:2,
+            },
+            1024: {
+                items:4,
+            }
+        }
+    })
+    $(".works-carousel-next").on("click", function () {
+        worksCarousel.trigger('next.owl.carousel', [600]);
+    });
+    $(".works-carousel-prev").on("click",function () {
+        worksCarousel.trigger('prev.owl.carousel', [600]);
+    });
+
     // // common scripts
     // $("#current-year").text(new Date().getFullYear());
-    //
-    // // input masks
-    // $("#tel").mask("+7 (999) 999-99-99");
-    // $("#tel2").mask("+7 (999) 999-99-99");
-    //
-    // // scroll
-    // $(".menu-item-link").on("click", function() {
-    //     let get_id = $(this).attr("data-item");
-    //     let target = $("#"+get_id).offset().top - 80;
-    //     $(" html, body").animate({scrollTop: target}, 800);
-    // });
+
     // $(".button").on("click", function() {
     //     let get_id = $(this).attr("data-item");
     //     let target = $("#"+get_id).offset().top - 80;
@@ -71,8 +99,8 @@ $(function() {
     // });
     //
     // // carousels init
-    // let risksCarousel = $('.owl-carousel.risks-carousel');
-    // risksCarousel.owlCarousel({
+    // let worksCarousel = $('.owl-carousel.works-carousel');
+    // worksCarousel.owlCarousel({
     //     loop:false,
     //     margin: 24,
     //     nav:false,
@@ -86,14 +114,14 @@ $(function() {
     //         }
     //     }
     // })
-    // let risksCarouselNext = $("#risks-carousel-next")
-    // let risksCarouselPrev = $("#risks-carousel-prev")
+    // let worksCarouselNext = $("#works-carousel-next")
+    // let worksCarouselPrev = $("#works-carousel-prev")
     //
-    // risksCarouselNext.on("click", function () {
-    //     risksCarousel.trigger('next.owl.carousel', [600]);
+    // worksCarouselNext.on("click", function () {
+    //     worksCarousel.trigger('next.owl.carousel', [600]);
     // });
-    // risksCarouselPrev.on("click",function () {
-    //     risksCarousel.trigger('prev.owl.carousel', [600]);
+    // worksCarouselPrev.on("click",function () {
+    //     worksCarousel.trigger('prev.owl.carousel', [600]);
     // });
     // contact form 7
 
