@@ -1,18 +1,19 @@
 'use strict';
 $(function() {
     // // input masks
-    // $("#tel").mask("+7 (999) 999-99-99");
+    $("#phone").mask("+7 (999) 999-99-99");
 
     // play buttons init
-    initVideos(".about-video",".about-video-play");
+    initVideos(".about-video", ".about-video-play");
+
     function initVideos(videoClass, playButtonClass) {
         // Добавляем точки для селекторов классов
-        $(videoClass).each(function() {
+        $(videoClass).each(function () {
             let $video = $(this);
             // Находим соответствующую кнопку play для этого видео
             let $playButton = $video.siblings(playButtonClass);
 
-            $playButton.on('click', function(e) {
+            $playButton.on('click', function (e) {
                 e.stopPropagation(); // Предотвращаем всплытие, чтобы не сработал клик по видео
                 if ($video[0].paused) {
                     $video[0].play();
@@ -23,7 +24,7 @@ $(function() {
                 }
             });
 
-            $video.on('click', function() {
+            $video.on('click', function () {
                 if ($video[0].paused) {
                     $video[0].play();
                     $playButton.hide();
@@ -34,46 +35,71 @@ $(function() {
             });
 
             // Скрываем кнопку при завершении видео
-            $video.on('ended', function() {
+            $video.on('ended', function () {
                 $playButton.show();
             });
         });
     }
 
     // scroll
-    $(".menu-item-link").on("click", function() {
+    $(".menu-item-link").on("click", function () {
         let get_id = $(this).attr("data-item");
-        let target = $("#"+get_id).offset().top;
+        let target = $("#" + get_id).offset().top;
         $(" html, body").animate({scrollTop: target}, 800);
     });
 
     // carousels init
     let worksCarousel = $('.owl-carousel.works-carousel');
     worksCarousel.owlCarousel({
-        loop:true,
+        loop: true,
         margin: 24,
-        nav:false,
+        nav: false,
         dots: false,
-        responsive : {
+        responsive: {
             0: {
-                items:1.2,
+                items: 1.2,
                 margin: 10,
                 center: true,
             },
             480: {
-                items:2,
+                items: 2,
             },
             1024: {
-                items:4,
+                items: 4,
             }
         }
     })
     $(".works-carousel-next").on("click", function () {
         worksCarousel.trigger('next.owl.carousel', [600]);
     });
-    $(".works-carousel-prev").on("click",function () {
+    $(".works-carousel-prev").on("click", function () {
         worksCarousel.trigger('prev.owl.carousel', [600]);
     });
+
+    let commentsCarousel = $('.owl-carousel.comments-carousel');
+    commentsCarousel.owlCarousel({
+        loop: true,
+        margin: 24,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: true,
+        autoplaySpeed: 600,
+        nav: false,
+        dots: false,
+        responsive: {
+            0: {
+                items: 1.2,
+                margin: 10,
+                center: true,
+            },
+            480: {
+                items: 2,
+            },
+            1024: {
+                items: 3,
+            }
+        }
+    })
 
     // // common scripts
     // $("#current-year").text(new Date().getFullYear());

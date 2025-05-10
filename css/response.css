@@ -1,3 +1,14 @@
+@media screen and (max-width: 1340px){
+    .delivery-img-1{
+        right: unset;
+        left: 50%;
+        transform: rotate(-9deg) translate(-50%, -50%);
+    }
+    .delivery-img-2{
+        top: 50%;
+        transform: rotate(-15deg) translate(-50%, -50%);
+    }
+}
 @media screen and (max-width: 1180px) {
     .container{
         padding: 0 20px;
