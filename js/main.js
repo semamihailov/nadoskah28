@@ -19,13 +19,13 @@ $(function() {
     $("#phone").mask("+7 (999) 999-99-99");
 
     // popup
-    openCarPopup.on("click", function(event) {
-        event.preventDefault();
-        carPopup.addClass("active");
-    })
-    closeCarPopup.on("click", function() {
-        carPopup.removeClass("active");
-    })
+    // openCarPopup.on("click", function(event) {
+    //     event.preventDefault();
+    //     carPopup.addClass("active");
+    // })
+    // closeCarPopup.on("click", function() {
+    //     carPopup.removeClass("active");
+    // })
 
     // play buttons init
     initVideos(".about-video", ".about-video-play");
