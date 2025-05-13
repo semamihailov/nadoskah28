@@ -1,11 +1,34 @@
 'use strict';
 $(function() {
-    // // input masks
+    // common scripts
+    $("#current-year").text(new Date().getFullYear());
+
+    // go-top button
+    $(window).on("scroll", function() {
+        if($(this).scrollTop() !== 0) {
+            $("#go-top").fadeIn(300);
+        } else {
+            $("#go-top").fadeOut(300);
+        }
+    });
+    $("#go-top").on("click", function() {
+        $("html, body").animate({scrollTop: 0}, 600);
+    });
+
+    // input masks
     $("#phone").mask("+7 (999) 999-99-99");
+
+    // popup
+    openCarPopup.on("click", function(event) {
+        event.preventDefault();
+        carPopup.addClass("active");
+    })
+    closeCarPopup.on("click", function() {
+        carPopup.removeClass("active");
+    })
 
     // play buttons init
     initVideos(".about-video", ".about-video-play");
-
     function initVideos(videoClass, playButtonClass) {
         // Добавляем точки для селекторов классов
         $(videoClass).each(function () {
@@ -101,8 +124,6 @@ $(function() {
         }
     })
 
-    // // common scripts
-    // $("#current-year").text(new Date().getFullYear());
 
     // $(".button").on("click", function() {
     //     let get_id = $(this).attr("data-item");
