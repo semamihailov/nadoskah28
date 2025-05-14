@@ -278,7 +278,7 @@
         display: none;
     }
     .sizes-items .styles-item-image{
-        width: 208px;
+        width: 273px;
     }
     .main-form{
         padding: 24px;
@@ -306,6 +306,9 @@
     }
     .header-top{
         padding-top: 0;
+    }
+    .privacy-policy-section-title{
+        font-size: 24px;
     }
 }
 @media screen and (max-width: 390px){
