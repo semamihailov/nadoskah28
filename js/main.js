@@ -17,15 +17,29 @@ $(function() {
 
     // input masks
     $("#phone").mask("+7 (999) 999-99-99");
+    $("#phone-2").mask("+7 (999) 999-99-99");
 
     // popup
-    // openCarPopup.on("click", function(event) {
-    //     event.preventDefault();
-    //     carPopup.addClass("active");
-    // })
-    // closeCarPopup.on("click", function() {
-    //     carPopup.removeClass("active");
-    // })
+    let popup = $(".popup");
+    let popup_container = $(".popup-container");
+
+    $(".open-popup").on("click", function(event) {
+        event.preventDefault();
+        popup.addClass("active");
+    });
+
+    $(".close-popup").on("click", function() {
+        popup.removeClass("active");
+    });
+
+    // Закрытие при клике вне формы
+    popup.on("click", function(event) {
+        if ($(event.target).is(".popup")) {
+            $(this).removeClass("active");
+        }
+    });
+
+
 
     // play buttons init
     initVideos(".about-video", ".about-video-play");
@@ -70,6 +84,7 @@ $(function() {
         let target = $("#" + get_id).offset().top;
         $(" html, body").animate({scrollTop: target}, 800);
     });
+
 
     // carousels init
     let worksCarousel = $('.owl-carousel.works-carousel');
