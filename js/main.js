@@ -21,7 +21,7 @@ $(function() {
 
     // popup
     let popup = $(".popup");
-    let popup_container = $(".popup-container");
+    let thanks = $(".thanks");
 
     $(".open-popup").on("click", function(event) {
         event.preventDefault();
@@ -34,11 +34,39 @@ $(function() {
 
     // Закрытие при клике вне формы
     popup.on("click", function(event) {
-        if ($(event.target).is(".popup")) {
+        if ($(event.target).is(popup)) {
             $(this).removeClass("active");
         }
     });
 
+    $(".close-thanks").on("click", function() {
+        thanks.removeClass("active");
+    });
+
+    // Закрытие при клике вне формы
+    thanks.on("click", function(event) {
+        if ($(event.target).is(thanks)) {
+            $(this).removeClass("active");
+        }
+    });
+
+    let mobileMenu = $('.mobile-menu');
+    let toggleButton = $('.close-mobile-menu');
+    let closeIcon = $('.close-menu-icon');
+    let openIcon = $('.open-menu-icon');
+
+    toggleButton.on("click", function(event) {
+        event.preventDefault();
+        mobileMenu.toggleClass("active");
+
+        if (mobileMenu.hasClass("active")) {
+            closeIcon.show();
+            openIcon.hide();
+        } else {
+            closeIcon.hide();
+            openIcon.show();
+        }
+    });
 
 
     // play buttons init
